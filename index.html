@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <title>ISTE Chapter</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -20,7 +21,7 @@
             font-size: 2.5rem;
             text-align: center;
             color: #004d99;
-            margin: 20px 0;
+            margin: 10px 0;
         }
         .navbar {
             background-color: #004d99;
@@ -119,10 +120,50 @@
 
     <section id="home" class="section active">
         <div class="content">
-            <h1>Welcome to the ISTE Chapter !!</h1>
-            <img src="istelogo.png" alt="ISTE Logo" height="130px" width="150px">
+            <h1 style="font-size: 2.8rem; display: inline-block; vertical-align: middle; margin-right: 20px;">Welcome to the ISTE Chapter !!</h1>
+            <img src="istelogo.png" alt="ISTE Logo" style="height: 180px; width: 200px; display: inline-block; vertical-align: middle;">
             <p>
-                We are a community of passionate students who are committed to advancing technology education and innovation. Our chapter is a part of the larger Indian Society for Technical Education (ISTE), which is a global organization dedicated to empowering educators to transform learning and teaching through the effective use of technology.
+                <style>
+                    @keyframes letterMotion {
+                        0% { opacity: 0; transform: translateY(-20px); }
+                        100% { opacity: 1; transform: translateY(0); }
+                    }
+                    .animated-letter {
+                        display: inline-block;
+                        animation: letterMotion 0.5s forwards;
+                        animation-play-state: paused;
+                    }
+                    .word-space {
+                        margin-right: 0.3em;
+                    }
+                </style>
+                <span id="animatedText"></span>
+                <script>
+                    const text = "We are a community of passionate students who are committed to advancing technology education and innovation. Our chapter is a part of the larger Indian Society for Technical Education (ISTE), which is a global organization dedicated to empowering educators to transform learning and teaching through the effective use of technology.";
+                    const words = text.split(' ');
+                    const animatedText = document.getElementById('animatedText');
+                    
+                    words.forEach((word, wordIndex) => {
+                        const wordSpan = document.createElement('span');
+                        wordSpan.className = 'word-space';
+                        
+                        [...word].forEach((letter, letterIndex) => {
+                            const span = document.createElement('span');
+                            span.textContent = letter;
+                            span.className = 'animated-letter';
+                            span.style.animationDelay = `${(wordIndex * 0.1) + (letterIndex * 0.05)}s`;
+                            wordSpan.appendChild(span);
+                        });
+                        
+                        animatedText.appendChild(wordSpan);
+                    });
+
+                    setTimeout(() => {
+                        document.querySelectorAll('.animated-letter').forEach(letter => {
+                            letter.style.animationPlayState = 'running';
+                        });
+                    }, 100);
+                </script>
             </p>
             <a href="#" onclick="showSection('about')">Read More</a>
         </div>
@@ -130,7 +171,8 @@
 
     <section id="about" class="section">
         <div class="content">
-            <h1>About ISTE Chapter</h1>
+            
+            <marquee behavior="scroll" direction="left" style="font-size: 2rem; color: #004d99;">About ISTE Chapter</marquee>
             <p>
                 WE ARE HERE TO BRING CHANGE!! Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making Society for the Technical Education in the field of engineering and technology registered under the Societies Registration Act of 1860. Established in the year 1941, it aims at the Career Development of Engineering Teachers and Personality Development of Students, contributing to the overall development of our Technical Education System.
                 The ISTE Chapter at our college is a vibrant and dynamic community of students who are passionate about technology and innovation.
@@ -140,24 +182,44 @@
             <p>
                 Our mission is to foster a culture of innovation and excellence in technology education. By fostering collaboration among educators, facilitating knowledge exchange, and promoting innovative teaching methods, we aim to elevate the standard of technical education across India.
             </p>
-            <table>
+            <style>
+                @keyframes fadeInRotate {
+                    0% { opacity: 0; transform: rotate(-10deg); }
+                    100% { opacity: 1; transform: rotate(0deg); }
+                }
+                .faculty-img {
+                    animation: fadeInRotate 1s ease-out;
+                }
+                .faculty-img:hover {
+                    transform: scale(1.1);
+                    transition: transform 0.3s ease-in-out;
+                }
+            </style>
+            <table style="border-spacing: 20px;">
+                <h2>Faculty In-Charge</h2>
                 <tr>
-                    <th>Faculty In-Charge</th>
-                    <th>Prof. Pankaj Devre</th>
-                    <th>pankaj.devre@pccoepune.org</th>
-                    <td><img src="pankajderve.jpeg" alt="Prof. Pankaj Devre" height="100px" width="100px"></td>
+                    <td><img class="faculty-img" src="pankajderve.jpeg" alt="Prof. Pankaj Devre" height="100px" width="100px"></td>
+                    <td style="padding-left: 20px;">
+                        <strong>Prof. Pankaj Devre</strong><br>
+                        Faculty In-Charge<br>
+                        <a href="mailto:pankaj.devre@pccoepune.org">pankaj.devre@pccoepune.org</a>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Faculty In-Charge</th>
-                    <th>Prof. Santosh Sambare</th>
-                    <th>santosh.sambare@pccoepune.org</th>
-                    <td><img src="santoshsambare.jpg" alt="Prof. Santosh Sambare" height="100px" width="100px"></td>
+                    <td><img class="faculty-img" src="santoshsambare.jpg" alt="Prof. Santosh Sambare" height="100px" width="100px"></td>
+                    <td style="padding-left: 20px;">
+                        <strong>Prof. Santosh Sambare</strong><br>
+                        Faculty In-Charge<br>
+                        <a href="mailto:santosh.sambare@pccoepune.org">santosh.sambare@pccoepune.org</a>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Faculty In-Charge</th>
-                    <th>Prof. Rahul Patil</th>
-                    <th>rahul.patil@pccoepune.org</th>
-                    <td><img src="rahulpatil.jpeg" alt="Prof. Rahul Patil" height="100px" width="100px"></td>
+                    <td><img class="faculty-img" src="rahulpatil.jpeg" alt="Prof. Rahul Patil" height="100px" width="100px"></td>
+                    <td style="padding-left: 20px;">
+                        <strong>Prof. Rahul Patil</strong><br>
+                        Faculty In-Charge<br>
+                        <a href="mailto:rahul.patil@pccoepune.org">rahul.patil@pccoepune.org</a>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -172,51 +234,135 @@
                 </div>
                 <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js">
                 </script>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="contact">Phone Number:</label>
-                <input type="number" id="contact" name="contact" required>
-                <label for="domain">Interested Domain in ISTE:</label>
-                <input type="text" id="domain" name="domain">
-                <button type="submit">Join</button>
+                <style>
+                    .join-form {
+                        max-width: 400px;
+                        margin: 0 auto;
+                        background-color: #e6f7ff;
+                        padding: 20px;
+                        border-radius: 10px;
+                    }
+                    .join-form input {
+                        width: 100%;
+                        padding: 10px;
+                        margin-bottom: 15px;
+                        border: none;
+                        border-bottom: 2px solid #004d99;
+                        background-color: transparent;
+                        transition: all 0.3s ease;
+                    }
+                    .join-form input:focus {
+                        outline: none;
+                        border-bottom-color: #007acc;
+                    }
+                    .join-form label {
+                        display: block;
+                        margin-bottom: 5px;
+                        color: #004d99;
+                        font-weight: bold;
+                    }
+                    .join-form button {
+                        width: 100%;
+                        padding: 10px;
+                        background-color: #004d99;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+                    .join-form button:hover {
+                        background-color: #007acc;
+                    }
+                    @keyframes fadeInUp {
+                        from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                    .join-form > * {
+                        animation: fadeInUp 0.5s ease forwards;
+                        opacity: 0;
+                    }
+                    .join-form > *:nth-child(1) { animation-delay: 0.1s; }
+                    .join-form > *:nth-child(2) { animation-delay: 0.2s; }
+                    .join-form > *:nth-child(3) { animation-delay: 0.3s; }
+                    .join-form > *:nth-child(4) { animation-delay: 0.4s; }
+                    .join-form > *:nth-child(5) { animation-delay: 0.5s; }
+                </style>
+                <div class="join-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="contact">Phone Number:</label>
+                    <input type="tel" id="contact" name="contact" required>
+                    <label for="domain">Interested Domain in ISTE:</label>
+                    <input type="text" id="domain" name="domain">
+                    <button type="submit">Join</button>
+                </div>
             </form>
         </div>
     </section>
 
     <section id="cell" class="section">
         <div class="content">
-            <h1>Cells</h1>
-            <h2>Coding Cell <img src="codingcell.svg" alt="Cells"></h2>
+            <h1 style="font-size: 3rem;">Cells</h1>
+            <h2 style="display: flex; align-items: center; font-size: 40px;">Coding Cell <img src="codingcell.svg" alt="Cells" style="width: 50px; height: 50px; margin-left: 10px;"></h2>
             <p>The Coding Cell at ISTE PCCOE is a dynamic hub for students passionate about programming and software development. Join us to unlock your coding potential and be part of a vibrant coding community.</p>
             
-            <h2>Web Development Cell <img src="webmaster.svg" alt="Web Development Cell"></h2>
+            <h2 style="display: flex; align-items: center; font-size: 40px;">Web Development Cell <img src="webmaster.svg" alt="Web Development Cell" style="width: 50px; height: 50px; margin-left: 10px; background: none;"></h2>
             <p>The Web Master Cell at ISTE PCCOE is your gateway to mastering web development and design. Join us to unleash your creativity and become a web developer.</p>
             
-            <h2>Artificial Intelligence Cell <img src="aimlcell.svg" alt="Artificial Intelligence Cell"></h2>
+            <h2 style="display: flex; align-items: center; font-size: 40px;">Artificial Intelligence Cell <img src="aimlcell.svg" alt="Artificial Intelligence Cell" style="width: 50px; height: 50px; margin-left: 10px; background: none;"></h2>
             <p>The AI/ML Cell at ISTE PCCOE explores the fascinating realms of Artificial Intelligence and Machine Learning. This cell organizes seminars and hands-on workshops that dive into AI technologies.</p>
-            
-            <h2>CAD Cell <img src="cadcell.svg" alt="CAD Cell"></h2>
+            <h2 style="display: flex; align-items: center; font-size: 40px;">CAD Cell <img src="cadcell.svg" alt="CAD Cell" style="width: 50px; height: 50px; margin-left: 10px;"></h2>
             <p>The CAD Cell at ISTE PCCOE is where engineering meets innovation. This cell specializes in Computer-Aided Design (CAD) and offers training in tools like AutoCAD.</p>
         </div>
     </section>
 
     <section id="events" class="section">
-        <div class="content">
+        <div class="content" style="text-align: center;">
             <h1>Events</h1>
-            <h2>Event Going On !!</h2>
-            <p>
-                <img src="poster.jpeg" alt="UI Wars">
+            <h2>Events Going On !!</h2>
+            <div class="event-card">
+                <img src="poster.jpeg" alt="UI Wars" style="max-width: 300px; height: auto; margin: 20px auto;">
                 <h3>UI Wars</h3>
-                Unleash Your Design Skills in 'UI Wars' Where Creativity Meets Code in the Ultimate Frontend Showdown!
-            </p>
+                <p>Unleash Your Design Skills in 'UI Wars' Where Creativity Meets Code in the Ultimate Frontend Showdown!</p>
+            </div>
+            <div class="event-card">
+                <p>Join us for 24 hours of non-stop coding, innovation, and problem-solving!</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 ISTE Chapter</p>
     </footer>
+    
+    <section id="join" class="section">
+        <div class="content">
+            <div class="sidebar">
+                <div class="join-us-panel">
+                    <h3>Join Us</h3>
+                    <p>Become a volunteer and make a difference!</p>
+                    <a href="#join" class="join-button">Join Now</a>
+                </div>
+            </div>
+            <div class="main-content">
+                <form action="https://forms.visme.co/formsPlayer/90qormpp-volunteer-registration-form">
+                    <div class="visme_d" data-title="Volunteer Registration Form" data-url="90qormpp-volunteer-registration-form?fullPage=true" data-domain="forms" data-full-page="true" data-min-height="100vh" data-form-id="99885">
+                    </div>
+                    <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+                </form>
+            </div>
+        </div>
+    </section>
+
 
     <script>
         function showSection(sectionId) {
