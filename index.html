@@ -1,39 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <title>Interactive Page</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f0f0f0;
-            }
-            button {
-                padding: 10px 20px;
-                font-size: 16px;
-                cursor: pointer;
-                background-color: #007BFF;
-                color: white;
-                border: none;
-                border-radius: 5px;
-            }
-            button:hover {
-                background-color: #0056b3;
-            }
-        </style>
-    </head>
-    <body>
-        <button onclick="showAlert()">Click Me!</button>
-        <script>
-            function showAlert() {
-                alert('Hello! This is your special interactive feature.');
-            }
-        </script>
-    </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ISTE Chapter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #004d99;
+            margin: 20px 0;
+        }
+        .navbar {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #007acc;
+        }
+        .section {
+            display: none;
+            padding: 2rem;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section.active {
+            display: block;
+        }
+        #home {
+            background-color: #e6f7ff;
+        }
+        #about {
+            background-color: #fff3e6;
+        }
+        #join {
+            background-color: #e6ffe6;
+        }
+        #cell {
+            background-color: #fff0f0;
+        }
+        #events {
+            background-color: #e6e6ff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        form input, form button {
+            margin-bottom: 1rem;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        form button {
+            background-color: #004d99;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        form button:hover {
+            background-color: #007acc;
+        }
+        footer {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        img {
+            margin: 10px 0;
+            max-width: 100px; 
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>ISTE Chapter</h1>
+    <nav class="navbar">
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('cell')">Cells</a>
+        <a href="#" onclick="showSection('join')">Join Us</a>
+        <a href="#" onclick="showSection('events')">Events</a>
+    </nav>
+
+    <section id="home" class="section active">
+        <div class="content">
+            <h1>Welcome to the ISTE Chapter !!</h1>
+            <img src="istelogo.png" alt="ISTE Logo" height="130px" width="150px">
+            <p>
+                We are a community of passionate students who are committed to advancing technology education and innovation. Our chapter is a part of the larger Indian Society for Technical Education (ISTE), which is a global organization dedicated to empowering educators to transform learning and teaching through the effective use of technology.
+            </p>
+            <a href="#" onclick="showSection('about')">Read More</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="content">
+            <h1>About ISTE Chapter</h1>
+            <p>
+                WE ARE HERE TO BRING CHANGE!! Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making Society for the Technical Education in the field of engineering and technology registered under the Societies Registration Act of 1860. Established in the year 1941, it aims at the Career Development of Engineering Teachers and Personality Development of Students, contributing to the overall development of our Technical Education System.
+                The ISTE Chapter at our college is a vibrant and dynamic community of students who are passionate about technology and innovation.
+            </p>
+            <h2>Our Mission</h2>
+            <h3>Empowering India's Tech Education</h3>
+            <p>
+                Our mission is to foster a culture of innovation and excellence in technology education. By fostering collaboration among educators, facilitating knowledge exchange, and promoting innovative teaching methods, we aim to elevate the standard of technical education across India.
+            </p>
+            <table>
+                <tr>
+                    <th>Faculty In-Charge</th>
+                    <th>Prof. Pankaj Devre</th>
+                    <th>pankaj.devre@pccoepune.org</th>
+                    <td><img src="pankajderve.jpeg" alt="Prof. Pankaj Devre" height="100px" width="100px"></td>
+                </tr>
+                <tr>
+                    <th>Faculty In-Charge</th>
+                    <th>Prof. Santosh Sambare</th>
+                    <th>santosh.sambare@pccoepune.org</th>
+                    <td><img src="santoshsambare.jpg" alt="Prof. Santosh Sambare" height="100px" width="100px"></td>
+                </tr>
+                <tr>
+                    <th>Faculty In-Charge</th>
+                    <th>Prof. Rahul Patil</th>
+                    <th>rahul.patil@pccoepune.org</th>
+                    <td><img src="rahulpatil.jpeg" alt="Prof. Rahul Patil" height="100px" width="100px"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="join" class="section">
+        <div class="content">
+            <h1>Join Us</h1>
+            <p>We are always looking for passionate students who are interested in technology and innovation. If you are interested in joining our chapter, please fill out the form below.</p>
+            <form action="https://forms.visme.co/formsPlayer/90qormpp-volunteer-registration-form">
+                <div class="visme_d" data-title="Volunteer Registration Form" data-url="90qormpp-volunteer-registration-form?fullPage=true" data-domain="forms" data-full-page="true" data-min-height="100vh" data-form-id="99885">
+                </div>
+                <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js">
+                </script>
+        </div>
+    </section>
+
+    <section id="cell" class="section">
+        <div class="content">
+            <h1>Cells</h1>
+            <h2>Coding Cell <img src="codingcell.svg" alt="Cells"></h2>
+            <p>The Coding Cell at ISTE PCCOE is a dynamic hub for students passionate about programming and software development. Join us to unlock your coding potential and be part of a vibrant coding community.</p>
+            
+            <h2>Web Development Cell <img src="webmaster.svg" alt="Web Development Cell"></h2>
+            <p>The Web Master Cell at ISTE PCCOE is your gateway to mastering web development and design. Join us to unleash your creativity and become a web developer.</p>
+            
+            <h2>Artificial Intelligence Cell <img src="aimlcell.svg" alt="Artificial Intelligence Cell"></h2>
+            <p>The AI/ML Cell at ISTE PCCOE explores the fascinating realms of Artificial Intelligence and Machine Learning. This cell organizes seminars and hands-on workshops that dive into AI technologies.</p>
+            
+            <h2>CAD Cell <img src="cadcell.svg" alt="CAD Cell"></h2>
+            <p>The CAD Cell at ISTE PCCOE is where engineering meets innovation. This cell specializes in Computer-Aided Design (CAD) and offers training in tools like AutoCAD.</p>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <div class="content">
+            <h1>Events</h1>
+            <h2>Event Going On !!</h2>
+            <p>
+                <img src="poster.jpeg" alt="UI Wars">
+                <h3>UI Wars</h3>
+                Unleash Your Design Skills in 'UI Wars' Where Creativity Meets Code in the Ultimate Frontend Showdown!
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ISTE Chapter</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
 </html>
